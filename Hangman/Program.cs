@@ -7,7 +7,7 @@ namespace Hangman {
             new Program();
         }
 
-        String[] words = { "java", "microsoft", "oracle", "kotlin", "python", "groovy" };
+        String[] words = { "java", "microsoft", "oracle", "kotlin", "python", "groovy", "scala", "javascript" };
         String word;
         Boolean shouldStop = false;
         int chancesLeft = 5;
@@ -24,7 +24,7 @@ namespace Hangman {
 
             Console.WriteLine("Welcome to hangman by Gav06\n\n");
 
-            Console.WriteLine(word);
+            //Console.WriteLine(word);
             Console.WriteLine("The word is " + word.Length + " characters long\n");
 
             while (!shouldStop) {
@@ -55,7 +55,9 @@ namespace Hangman {
             if (rawInput.Length == 0) {
                 return;
             }
-            char guessedLetter = rawInput.ToCharArray()[0];
+
+            // make everything lowercase
+            char guessedLetter = rawInput.ToLower().ToCharArray()[0];
             Console.WriteLine("You guessed " + guessedLetter);
             int instances = instancesOfLetterInWord(guessedLetter);
             Console.WriteLine("There are " + instances + " instances of " + guessedLetter + " in the word");
